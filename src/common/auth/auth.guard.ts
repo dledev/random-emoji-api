@@ -7,9 +7,6 @@ export class AuthGuard implements CanActivate {
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest();
-
-    // check if API key is present
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const apiKey = request.headers['x-api-key'];
 
     if (apiKey !== 'SECRET') {
